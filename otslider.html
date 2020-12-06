@@ -2,15 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>OneTime Slider(OTSlider) | Free and Open Source javascript carousel - inioHD</title>
+<title>otSlider (OneTime Slider) | Free and Open Source vanilla javascript carousel - inioHD</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="robots" content="follow,index"/>
-<meta name="description" content="OneTime Slider(OTSlider) is an powerful and intuitive carousel or slider..." />
-<meta name="keywords" content="carousel, slider, inioHD, otslider, open source, github, html, css, javascript, js, php, web development, web design" />
+<meta name="robots" content="follow,index" />
+<meta name="description" content="otSlider (OneTime Slider) is a powerful and intuitive carousel built from vanilla (plain) Javascript..." />
+<meta name="keywords" content="carousel, slider, iniohd, otslider, open source, free download , github, html, css, javascript, js, php, web development, web design" />
+<meta name="author" content="@inioHD" />
 <link rel="stylesheet" type="text/css" href="src/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="src/css/style.css" />
-<script src="src/js/otslider/otslider.js"></script>
-<link rel="stylesheet" type="text/css" href="src/js/otslider/otslider.css" />
+<link rel="stylesheet" type="text/css" href="../jspro/otslider/otslider.css" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu|Open+Sans" />
+<script src="../jspro/otslider/otslider.js"></script>
+<script src="src/js/jquery-1.12.2.min.js"></script>
+<style>
+.generic-slider .ot-item .slider-item-outer{
+    position:relative;
+    display:table;
+    width:100%;
+    height:100%;
+    background:#333;
+    color:#FFF;
+    font-size:1.6em;
+}
+.generic-slider .ot-item .slider-item-outer .slider-item-inner{
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+}
+</style>
 </head>
 <body>
     <div class="hom-main"><!--main-->
@@ -28,10 +47,10 @@
                         <li><a href="/">home</a></li>
                         <li><a href="">projects</a>
                             <ul>
-                                <li><a href="otslider.html">OTSlider</a></li>
+                                <li><a href="otslider.html">otSlider</a></li>
                             </ul>
                         </li>
-                        <li><a href="">about</a></li>
+                        <li><a href="about.html">about</a></li>
                     </ul>
                 </div>
             </div><!--.top-nav-->
@@ -39,13 +58,13 @@
         <div class="hom-article"><!--article-->
             <div class="hom-section hom-article-intro"><!--article-intro-->
                 <div class="hom-article-title">
-                    <h1 style="left:0;">OneTime Slider(OtSlider)</h1>
+                    <h1>otSlider (OneTime Slider)</h1>
                 </div>
                 <div class="hom-article-desc">
-                    <p>OneTime Slider(OTSlider) is an powerful and intuitive
-                    carousel or slider, built from vanilla(plain) Javascript.
+                    <p>otSlider (OneTime Slider) is a powerful and intuitive
+                    carousel or slider, built from vanilla (plain) Javascript.
                     It has support for many features including <strong>slide</strong>
-                    and <strong>fade</strong> effects, swipe and many more features.</p>
+                    and <strong>fade</strong> transitions, swipe and many more advanced features.</p>
                 </div>
             </div><!--.article-intro-->
             <div class="hom-section hom-article-tags"><!--article-tags-->
@@ -54,7 +73,20 @@
                 </div>
                 <div class="hom-pro-download"><!--project-download-->
                     <div class="pro-download-button">
-                        <a href="https://github.com/iniohd/otslider/archive/v1.1.0.zip"><button>free download</button></a>
+                        <div class="hom-button" style="position:relative;padding:0;">
+                            <span style="display:block;padding:12px;" id="download-accordion-button">Free Download</span>
+                            <div class="hom-accordion-container" id="download-accordion">
+                                <ul class="hom-accordion hom-horizontal-list ">
+                                    <li class="hom-content-loading-animation"></li>
+                                    <li class="hom-content-loading-animation"></li>
+                                    <li class="hom-content-loading-animation"></li>
+                                    <li class="hom-content-loading-animation"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-download-button pro-repository-button">
+                        <a href="https://github.com/iniohd/otslider"><button>github</button></a>
                     </div>
                 </div><!--.project-download-->
             </div><!--.article-tags-->
@@ -84,21 +116,22 @@
                 </div><!--.content-block-->
                 <div class="hom-article-content-block"><!--content-block-->
                     <h2>Getting Started</h2>
-                    <p>OneTime Slider is coded with vanilla javascript also
+                    <p>otSlider is written with vanilla javascript also
                     know as plain or pure javascript. Which means that you
                     don't need an external library to run it.</p>
                 </div><!--.content-block-->
                 <div class="hom-article-content-block"><!--content-block-->
                     <h2>How To</h2>
-                    <p>In order to run OneTime Slider its easy. Just download it.
-                    Then uncompress/extract the folder inside the downloaded
-                    ip archive and upload it to your web site or blog.</p>
-                    <p>After upload OTSlider's files into your Web Site or Blog, do the following steps:</p>
+                    <p>In order to run otSlider, it's easy. Just download it,
+                    then uncompress/extract the files inside the downloaded
+                    file archive and upload it to your Web Application.</p>
+                    <p>After upload otSlider's files into your Web Application,
+                    do the following steps:</p>
                     <div class="hom-pro-container">
                         <p><strong>Step 1</strong>:</p>
                         <div class="source-code-desc">
-                            <p>Call <strong>otslider.css</strong> and <strong>otslider.js</strong> files within slider
-                            folder at the <strong>&lt;head&gt;</strong> tag.</p>
+                            <p>Call <strong>otslider.css</strong> and <strong>otslider.js</strong> files
+                            at the <strong>&lt;head&gt;</strong> or <strong>&lt;body&gt;</strong> tag.</p>
                         </div>
                         <code>
                             <span class="source-code-htmltag">&lt;</span><span class="source-code-htmltagstring">html</span><span class="source-code-htmltag">&gt;</span><br />
@@ -115,9 +148,10 @@
                         </code>
                         <p><strong>Step 2</strong>:</p>
                         <div class="source-code-desc">
-                            <p>Now that you've called the needed OTSlider files
-                            within &lt;head&gt; tag. Its time to initialize it.</p>
-                            <p>OTSlider can be initialized within
+                            <p>Now that you've called the needed otSlider files
+                            within <strong>&lt;head&gt;</strong> or
+                            <strong>&lt;body&gt;</strong> tag. It's time to initialize it.</p>
+                            <p>otSlider can be initialized within
                             <strong>&lt;head&gt;</strong> or
                             <strong>&lt;body&gt;</strong> tag.</p>
                         </div>
@@ -146,7 +180,7 @@
                 </div><!--content-block-->
                 <div class="hom-article-content-block"><!--content-block-->
                     <h2>Optional configs object</h2>
-                    <p><strong>OTSlider</strong> can be initialized with an
+                    <p><strong>otSlider</strong> can be initialized with an
                     optional object as argument, which is used to alter some functions of
                     the slider.</p>
                     <p><strong><i>Note</i></strong>: The optional configs object is only called on
@@ -173,6 +207,12 @@
                             <span class="source-code-objectkey">responsive</span> : <span class="source-code-bool">true</span>,<br />
                             <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">false</span>,<br />
                             <span class="source-code-objectkey">numericNav</span> : <span class="source-code-bool">true</span><br />
+                            <span class="source-code-objectkey">itemsToShow</span> : <span class="source-code-int">1</span><br />
+                            <span class="source-code-objectkey">itemsScrollBy</span> : <span class="source-code-int">1</span><br />
+                            <span class="source-code-objectkey">padding</span> : <span class="source-code-int">0</span><br />
+                            <span class="source-code-objectkey">teasing</span> : <span class="source-code-int">0</span><br />
+                            <span class="source-code-objectkey">swipeFreely</span> : <span class="source-code-bool">false</span><br />
+                            <span class="source-code-objectkey">centered</span> : <span class="source-code-bool">false</span><br />
                         });<br />
                     </code>
                     <div class="">
@@ -189,7 +229,7 @@
                                 <tr>
                                     <td>initial</td>
                                     <td>element</td>
-                                    <td>string</td>
+                                    <td>object | string</td>
                                     <td></td>
                                     <td>It can be an HTML elemnt or its class name or its ID.</td>
                                 </tr>
@@ -198,14 +238,14 @@
                                     <td>direction</td>
                                     <td>string</td>
                                     <td>ltr | rtl</td>
-                                    <td>Indicate the direction that OTSlider must perform.</td>
+                                    <td>Indicate the direction that otSlider must perform.</td>
                                 </tr>
                                 <tr>
                                     <td>initial</td>
                                     <td>transition</td>
                                     <td>string</td>
                                     <td>slide | fade</td>
-                                    <td>Indicate the type of transition that OTSlider must use.</td>
+                                    <td>Indicate the type of transition that otSlider must use.</td>
                                 </tr>
                                 <tr>
                                     <td>initial</td>
@@ -234,6 +274,13 @@
                                     <td>number</td>
                                     <td>integer</td>
                                     <td>The amount of time in milliseconds, that the transition takes.</td>
+                                </tr>
+                                <tr>
+                                    <td>v1.1.0</td>
+                                    <td>transitionTiming</td>
+                                    <td>string</td>
+                                    <td>ease | ease-out | ease-in | linear | cubic-bezier(...)</td>
+                                    <td>Determine how the the transition must behaviour. This will only take effect on all modern Web Browsers that support CSS3 transition property.</td>
                                 </tr>
                                 <tr>
                                     <td>initial</td>
@@ -275,7 +322,7 @@
                                     <td>responsive</td>
                                     <td>boolean</td>
                                     <td>true | false</td>
-                                    <td>Tells OTSlider if should adapt its width of height to diferent devices screens.</td>
+                                    <td>Tells OTSlider to adapt its width or height to diferent devices screens.</td>
                                 </tr>
                                 <tr>
                                     <td>v1.1.0</td>
@@ -296,24 +343,72 @@
                                     <td>width</td>
                                     <td>number</td>
                                     <td>integer | float</td>
-                                    <td>Set OTSlider's width</td>
+                                    <td>Set OTSlider's custom width</td>
                                 </tr>
                                 <tr>
                                     <td>initial</td>
                                     <td>height</td>
                                     <td>number</td>
                                     <td>integer | float</td>
-                                    <td>Set OTSlider's height</td>
+                                    <td>Set OTSlider's custom height</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> itemsToShow</td>
+                                    <td>number</td>
+                                    <td>integer</td>
+                                    <td>Determine the total number of items that must be displayed at once.</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> itemsScrollBy</td>
+                                    <td>number</td>
+                                    <td>integer</td>
+                                    <td>Determine by how many items otSlider must scroll. Note that the value must be greeter
+                                    than 0 and less or iquals to the "itemsToShow".</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> padding</td>
+                                    <td>number</td>
+                                    <td>integer</td>
+                                    <td>The space in pixels between slider's items.</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> teasing</td>
+                                    <td>number</td>
+                                    <td>integer</td>
+                                    <td>The portion in pixels of the previous or next items to be displayed.</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> swipeFreely</td>
+                                    <td>boolean</td>
+                                    <td>true | false</td>
+                                    <td>If set to true the slider will not fallback after swipe. It will stay at the last swipe position.</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0.0</td>
+                                    <td><sup>*slide</sup> centered</td>
+                                    <td>boolean</td>
+                                    <td>true | false</td>
+                                    <td>If set to true the current displayed items (determined by itemsToShow) will be centralised.</td>
                                 </tr>
                             </table>
                         </div>
+                        <div class="hom-note-section"><!--note-section-->
+                            <div>
+                                <p><sup>(*slide)</sup> symbol: Indicate the features that will only take effect if otSlider is set to use "slide" transition.</p>
+                            </div>
+                        </div><!--.note-section-->
                     </div>
                 </div><!--.content-block-->
                 <div class="hom-article-content-block">
                     <h2>More demos</h2>
                     <p>Bellow are some demos of OTSlider initialized with optional object parameter.</p>
                     <div class="hom-pro-demo-container"><!--demo-->
-                        <p><strong>Fade animation</strong>:</p>
+                        <p><strong>Fade Transition</strong>:</p>
                         <div id="fade-slider" style="margin:0 auto;">
                             <img src="src/img/img1.jpg">
                             <img src="src/img/img2.jpg">
@@ -381,7 +476,7 @@
                             <span class="source-code-id">otslider</span>.<span class="source-code-method">init</span>({<br />
                                 <span class="source-code-objectkey">element</span> : <span class="source-code-string">'nap-slider'</span>,<br />
                                 <span class="source-code-objectkey">autoPlay</span> : <span class="source-code-bool">false</span>,<br />
-                                <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">true,</span><br />
+                                <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">true</span>,<br />
                                 <span class="source-code-objectkey">showNav</span> : <span class="source-code-bool">false</span><br />
                             });<br />
                         </code>
@@ -396,17 +491,314 @@
                             });
                         </script>
                     </div><!--.demo-->
+                    <div class="hom-pro-demo-container"><!--demo-->
+                        <p><strong>Show a portion of next item and also give some space between items</strong>:</p>
+                        <div class="tp-slider" style="margin:0 auto;">
+                            <img src="src/img/img5.jpg">
+                            <img src="src/img/img6.jpg">
+                            <img src="src/img/img3.jpg">
+                            <img src="src/img/img2.jpg">
+                            <img src="src/img/img4.jpg">
+                        </div>
+                        <code>
+                            <span class="source-code-keyword">var</span> <span class="source-code-id">otslider</span> = <span class="source-code-keyword">new</span> <span class="source-code-func">OTSlider</span>();<br />
+                            <span class="source-code-id">otslider</span>.<span class="source-code-method">init</span>({<br />
+                                <span class="source-code-objectkey">element</span> : <span class="source-code-string">"tp-slider"</span>,<br />
+                                <span class="source-code-objectkey">teasing</span> : <span class="source-code-int">60</span>,<br />
+                                <span class="source-code-objectkey">padding</span> : <span class="source-code-int">4</span>,<br />
+                                <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">true</span><br />
+                            });<br />
+                        </code>
+                        <script>
+                            var slider = new OTSlider();
+
+                            slider.init({
+                                element : "tp-slider",
+                                teasing : 60,
+                                padding : 4,
+                                roundButtons : true,
+                            });
+                        </script>
+                    </div><!--.demo-->
+                    <div class="hom-pro-demo-container"><!--demo-->
+                        <p><strong>Show a portion of previous or next items and give some space between items</strong>:</p>
+                        <div class="centered-slider" style="margin:0 auto;">
+                            <img src="src/img/img7.jpeg">
+                            <img src="src/img/img8.jpeg">
+                            <img src="src/img/img5.jpg">
+                            <img src="src/img/img6.jpg">
+                            <img src="src/img/img4.jpg">
+                            <img src="src/img/img9.jpg">
+                            <img src="src/img/img10.jpg">
+                        </div>
+                        <code>
+                            <span class="source-code-keyword">var</span> <span class="source-code-id">otslider</span> = <span class="source-code-keyword">new</span> <span class="source-code-func">OTSlider</span>();<br />
+                            <span class="source-code-id">otslider</span>.<span class="source-code-method">init</span>({<br />
+                                <span class="source-code-objectkey">element</span> : <span class="source-code-string">"centered-slider"</span>,<br />
+                                <span class="source-code-objectkey">teasing</span> : <span class="source-code-int">75</span>,<br />
+                                <span class="source-code-objectkey">padding</span> : <span class="source-code-int">6</span>,<br />
+                                <span class="source-code-objectkey">transitionDuration</span> : <span class="source-code-int">1000</span>,<br />
+                                <span class="source-code-objectkey">centered</span> : <span class="source-code-bool">true</span><br />
+                                <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">true</span><br />
+                            });<br />
+                        </code>
+                        <script>
+                            var slider = new OTSlider();
+
+                            slider.init({
+                                element : "centered-slider",
+                                teasing : 75,
+                                padding: 6,
+                                transitionDuration : 1000,
+                                centered : true,
+                                roundButtons : true
+                            });
+                        </script>
+                    </div><!--.demo-->
+                    <div class="hom-pro-demo-container"><!--demo-->
+                        <p><strong>Show multiple items at once and multiple scroll</strong>:</p>
+                        <div class="mi-slider generic-slider" style="margin:0 auto;">
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">1</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">2</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">3</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">4</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">5</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">6</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">7</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">8</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">9</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">10</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">11</div>
+                                </div>
+                            </div>
+                        </div>
+                        <code>
+                            <span class="source-code-keyword">var</span> <span class="source-code-id">otslider</span> = <span class="source-code-keyword">new</span> <span class="source-code-func">OTSlider</span>();<br />
+                            <span class="source-code-id">otslider</span>.<span class="source-code-method">init</span>({<br />
+                                <span class="source-code-objectkey">element</span> : <span class="source-code-string">"mi-slider"</span>,<br />
+                                <span class="source-code-objectkey">itemsToShow</span> : <span class="source-code-int">3</span>,<br />
+                                <span class="source-code-objectkey">itemsScrollBy</span> : <span class="source-code-int">3</span>,<br />
+                                <span class="source-code-objectkey">teasing</span> : <span class="source-code-int">120</span><br />
+                                <span class="source-code-objectkey">padding</span> : <span class="source-code-int">6</span><br />
+                                <span class="source-code-objectkey">duration</span> : <span class="source-code-int">5000</span><br />
+                                <span class="source-code-objectkey">centered</span> : <span class="source-code-bool">true</span><br />
+                                <span class="source-code-objectkey">roundButtons</span> : <span class="source-code-bool">true</span><br />
+                                <span class="source-code-objectkey">numericNav</span> : <span class="source-code-bool">false</span><br />
+                            });<br />
+                        </code>
+                        <script>
+                            var slider = new OTSlider();
+
+                            slider.init({
+                                element : "mi-slider",
+                                itemsToShow : 3,
+                                itemsScrollBy : 3,
+                                teasing : 120,
+                                padding : 6,
+                                duration : 5000,
+                                centered : true,
+                                roundButtons : true,
+                                numericNav : false
+                            });
+                        </script>
+                    </div><!--.demo-->
+                    <div class="hom-pro-demo-container"><!--demo-->
+                        <p><strong>Show multiple items at once and Swipe Freely</strong>:</p>
+                        <div class="sf-slider generic-slider" style="margin:0 auto;">
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">1</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">2</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">3</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">4</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">5</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">6</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">7</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">8</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">9</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">10</div>
+                                </div>
+                            </div>
+                            <div class="slider-item">
+                                <div class="slider-item-outer">
+                                    <div class="slider-item-inner">11</div>
+                                </div>
+                            </div>
+                        </div>
+                        <code>
+                            <span class="source-code-keyword">var</span> <span class="source-code-id">otslider</span> = <span class="source-code-keyword">new</span> <span class="source-code-func">OTSlider</span>();<br />
+                            <span class="source-code-id">otslider</span>.<span class="source-code-method">init</span>({<br />
+                                <span class="source-code-objectkey">element</span> : <span class="source-code-string">"sf-slider"</span>,<br />
+                                <span class="source-code-objectkey">itemsToShow</span> : <span class="source-code-int">4</span>,<br />
+                                <span class="source-code-objectkey">teasing</span> : <span class="source-code-int">60</span><br />
+                                <span class="source-code-objectkey">padding</span> : <span class="source-code-int">6</span><br />
+                                <span class="source-code-objectkey">swipeFreely</span> : <span class="source-code-bool">true</span><br />
+                                <span class="source-code-objectkey">autoPlay</span> : <span class="source-code-bool">false</span><br />
+                                <span class="source-code-objectkey">showNav</span> : <span class="source-code-bool">false</span><br />
+                                <span class="source-code-objectkey">showPrevNext</span> : <span class="source-code-bool">false</span><br />
+                            });<br />
+                        </code>
+                        <script>
+                            var slider = new OTSlider();
+
+                            slider.init({
+                                element : "sf-slider",
+                                itemsToShow : 4,
+                                teasing : 60,
+                                padding : 6,
+                                swipeFreely : true,
+                                autoPlay : false,
+                                showNav : false,
+                                showPrevNext : false
+                            });
+                        </script>
+                    </div><!--.demo-->
                 </div>
             </div><!--.article-content-->
         </div><!--.article-->
         <div class="hom-footer"><!--footer-->
             <div class="hom-footer-copyright">
                 <div>
-                    <p>&copy; 2020 inioHD</p>
+                    <p>&copy; 2020 @inioHD</p>
                 </div>
             </div>
         </div><!--.footer-->
     </div><!--.main-->
 <script src="src/js/script.js"></script>
+<script>
+(function(){
+    $(document).ready(function(){
+        $("#download-accordion-button").click(function(){
+            var $this = $(this), a, c;
+            
+            //Get download accordion container
+            a = $this.next("#download-accordion");
+
+            if(a.hasClass("hom-show-download-accordion")){
+
+                a.removeClass("hom-show-download-accordion");
+
+                $this.removeClass("hom-active-button");
+
+                setTimeout(function(){a.css("display", "");}, 200)
+            }else{
+                a.css("display", "block");
+
+                setTimeout(function(){
+                    a.addClass("hom-show-download-accordion");
+
+                    $this.addClass("hom-active-button");
+
+                    if(!a.hasClass("hom-content-loaded")){
+                        c = function(resp){
+                            if(!resp)
+                                return;
+
+                            var x = a.find(".hom-horizontal-list"), y = "", z;
+
+                            x.html("");
+
+                            if("object" === typeof resp){
+
+                                for(var i = 0; i < resp.length; i++){
+                                    y += '<li><a href="'+ resp[i]["assets"][0]["browser_download_url"] +'">'+
+                                    resp[i]["tag_name"] +'</a></li>';
+                                }
+
+                                x.html(y);
+
+                                a.addClass("hom-content-loaded");
+                                x.addClass("hom-content-loaded");
+                            }else{
+                                x.html("<li>"+ resp +"</li>");
+                            }
+                        };
+
+                        getGHRR("otslider", 5, c);
+                    }
+                }, 200)
+            }
+        });
+    });
+})(jQuery);
+</script>
 </body>
 </html>
