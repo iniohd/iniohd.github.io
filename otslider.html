@@ -745,7 +745,7 @@
 <script>
     const downloadBtn = document.getElementById("download-accordion-button")
     if (downloadBtn) {
-        downloadBtn.addEvnetListener("click", (e) => {
+        downloadBtn.addEventListener("click", (e) => {
             const btn = e.target,
             downloadAccordion = btn.parentNode.querySelector("#download-accordion")
 
