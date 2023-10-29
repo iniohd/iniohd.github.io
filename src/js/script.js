@@ -1,44 +1,38 @@
 /*
-* (c) inioHD 2020
+* (c) inioHD 2020 - 2023
 */
 
-function getGHRR(repoName, showAtMost, callback){
-    if("string" !== typeof repoName)
+function getGithubRespositoryRelease(repoName, showAtMost, callback) {
+    if ("string" !== typeof repoName) {
         throw new Error("Repository's name mustn't be empty");
-
+    }
     showAtMost = ("number" === typeof showAtMost) ? showAtMost : 5;
 
-    var x = new XMLHttpRequest(), y, d;
-
-    x.onreadystatechange = function(){
-        if(x.readyState == 4 && x.status == 200){
-            if(callback)
-                callback(JSON.parse(x.response));
-                
+    const url = `https://api.github.com/repos/iniohd/${repoName}/releases?per_page=${showAtMost}&uncache=${(new Date()).getTime()}`,
+    options = {
+        headers: {
+            Accept: "application/vnd.github.v3+json"
         }
     }
 
-    x.onerror = function(){
-        if(callback)
-            callback("An error occured. Please check your internet connection and try again.");
-    }
-
-    x.onabort = function(){
-        if(callback)
-            callback("Operation canceled.");
-    }
-
-    x.ontimeout = function(){
-        if(callback)
-            callback("The opeartion is take to long. Please try again.");
-    }
-
-    d = new Date();
-
-    y = "https://api.github.com/repos/iniohd/"+ repoName + "/releases?per_page="+
-    showAtMost + "&uncache="+ d.getTime();
-
-    x.open("get", y);
-    x.setRequestHeader("Accept", "application/vnd.github.v3+json");
-    x.send(null);
+    fetch(url, options)
+    .then((res) => {
+        if (!res.ok) {
+            callback("")
+            return
+        }
+        if (!callback) {
+            return
+        }
+        return res.json()
+    })
+    .then((res) => {
+        callback(res);
+    })
+    .catch((error) => {
+        if (!callback) {
+            return;
+        }
+        callback(`An error occured. Please check your internet connection and try again: ${error}`)
+    })
 }
