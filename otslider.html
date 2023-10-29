@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu|Open+Sans" />
 <script src="src/js/otslider/otslider.js"></script>
 <style>
-.generic-slider .ot-item .slider-item-outer{
+.generic-slider .ot-item .slider-item-outer {
     position:relative;
     display:table;
     width:100%;
@@ -23,7 +23,7 @@
     color:#FFF;
     font-size:1.6em;
 }
-.generic-slider .ot-item .slider-item-outer .slider-item-inner{
+.generic-slider .ot-item .slider-item-outer .slider-item-inner {
     display:table-cell;
     text-align:center;
     vertical-align:middle;
@@ -743,61 +743,51 @@
     </div><!--.main-->
 <script src="src/js/script.js"></script>
 <script>
-(function(){
-    $(document).ready(function(){
-        $("#download-accordion-button").click(function(){
-            var $this = $(this), a, c;
-            
-            //Get download accordion container
-            a = $this.next("#download-accordion");
+    const downloadBtn = document.getElementById("download-accordion-button")
+    if (downloadBtn) {
+        downloadBtn.addEvnetListener("click", (e) => {
+            const btn = e.target,
+            downloadAccordion = btn.parentNode.querySelector("#download-accordion")
 
-            if(a.hasClass("hom-show-download-accordion")){
+            if (downloadAccordion.classList.contains("hom-show-download-accordion")) {
+                downloadAccordion.classList.remove("hom-show-download-accordion")
+                btn.classList.remove("hom-active-button")
+                setTimeout(() => (downloadAccordion.style.display = ""), 200)
+            } else {
+                downloadAccordion.style.display = "block"
+                setTimeout(() => {
+                    downloadAccordion.classList.add("hom-show-download-accordion")
+                    btn.classList.add("hom-active-button")
 
-                a.removeClass("hom-show-download-accordion");
-
-                $this.removeClass("hom-active-button");
-
-                setTimeout(function(){a.css("display", "");}, 200)
-            }else{
-                a.css("display", "block");
-
-                setTimeout(function(){
-                    a.addClass("hom-show-download-accordion");
-
-                    $this.addClass("hom-active-button");
-
-                    if(!a.hasClass("hom-content-loaded")){
-                        c = function(resp){
-                            if(!resp)
-                                return;
-
-                            var x = a.find(".hom-horizontal-list"), y = "", z;
-
-                            x.html("");
-
-                            if("object" === typeof resp){
-
-                                for(var i = 0; i < resp.length; i++){
-                                    y += '<li><a href="'+ resp[i]["assets"][0]["browser_download_url"] +'">'+
-                                    resp[i]["tag_name"] +'</a></li>';
-                                }
-
-                                x.html(y);
-
-                                a.addClass("hom-content-loaded");
-                                x.addClass("hom-content-loaded");
-                            }else{
-                                x.html("<li>"+ resp +"</li>");
-                            }
-                        };
-
-                        getGithubRespositoryRelease("otslider", 5, c);
+                    if (downloadAccordion.classList.contains("hom-content-loaded")) {
+                        return
                     }
+                    const myCallback = function(res) {
+                        if (!res) {
+                            return;
+                        }
+                        const listContainer = downloadAccordion.querySelector(".hom-horizontal-list")
+                        y = ""
+
+                        listContainer.innerHTML = "";
+                        if ("object" === typeof res) {
+                            for (var i = 0; i < res.length; i++) {
+                                y += `<li><a href="${res[i]["assets"][0]["browser_download_url"]}">${res[i]["tag_name"]}</a></li>`;
+                            }
+
+                            listContainer.innerHTML = y;
+                            downloadAccordion.classList.add("hom-content-loaded");
+                            listContainer.classList.add("hom-content-loaded");
+                        } else {
+                            listContainer.innerHTML = `<li>${res}</li>`;
+                        }
+                    }
+
+                    getGithubRespositoryRelease("otslider", 5, myCallback);
                 }, 200)
             }
-        });
-    });
-})(jQuery);
+        }, false)
+    }
 </script>
 </body>
 </html>
